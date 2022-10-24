@@ -43,9 +43,9 @@ module.exports = async function(client){
         }
         const createAllInsertions = createInsertion(item)
         
-        //promises.push(client.query(createAllInsertions[0]))
+        promises.push(client.query(createAllInsertions[0]))
     }
-    //await Promise.all(promises)
+    await Promise.all(promises)
 
     const t2 = await client.query('SELECT NOW() as field1')
     console.log((t2.rows[0].field1 - result.rows[0].field1) / 1000, 'secondes')
@@ -56,6 +56,10 @@ function createInsertion(item){
     item.Lastname = item.Lastname.replace("'", '')
     item.Firstname = item.Firstname.replace("'", '')
     
+    if(item.Survived === ""){
+        item.Survived = null
+    }
+
     return [
         `
         INSERT INTO "titanic"."hometown" ("id", "city", "state", "country")
@@ -71,7 +75,7 @@ function createInsertion(item){
         VALUES (${item.PassengerId},'${item.Ticket}','${item.Fare}','${item.Pclass}','${item.Cabin}',${item.PassengerId},${item.PassengerId});
 
         INSERT INTO "titanic"."passenger" ("id", "lastname", "firstname", "age", "hasSurvived", "ticketId", "hometownId", "lifeboat", "body" )
-        VALUES (${item.PassengerId},'${item.Lastname}','${item.Firstname}', ${item.Age || null}, ${item.Survived || null}, ${item.PassengerId},${item.PassengerId}, NULLIF('${item.Lifeboat}', ''),NULLIF('${item.Body}', ''));
+        VALUES (${item.PassengerId},'${item.Lastname}','${item.Firstname}', ${item.Age || null}, ${item.Survived ? true : item.Survived === null ? null : false}, ${item.PassengerId},${item.PassengerId}, NULLIF('${item.Lifeboat}', ''),NULLIF('${item.Body}', ''));
         `
     ]
 }
