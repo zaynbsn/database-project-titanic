@@ -37,64 +37,92 @@ module.exports = async function(client){
     }
     // console.log(jsonArray)
     
-   
-    async function createTables() {
-        const createAllTable = [
-            `
-            CREATE TABLE IF NOT EXISTS "titanic"."passenger" (
-                "id" SERIAL,
-                "lastname" VARCHAR(255) NOT NULL,
-                "firstname" VARCHAR(255) NOT NULL,
-                "hasSurvived" BOOLEAN,
-                "ticketId" INT NOT NULL,
-                "hometownId" INT NOT NULL,
-                "lifeboat" VARCHAR(64),
-                "body" VARCHAR(64),
-                PRIMARY KEY ("id")
-            );`,
-    
-            `
-            CREATE TABLE IF NOT EXISTS "titanic"."ticket" (
-                "id" SERIAL,
-                "ticketNumber" VARCHAR(255) NOT NULL,
-                "fare" FLOAT NOT NULL,
-                "class" INT NOT NULL,
-                "cabin" VARCHAR(64),
-                "boardingId" INT NOT NULL,
-                "destinationId" INT NOT NULL,
-                PRIMARY KEY ("id")
-            );`,
-    
-            `
-            CREATE TABLE IF NOT EXISTS "titanic"."boarding" (
-                "id" SERIAL,
-                "name" VARCHAR(255) NOT NULL,
-                PRIMARY KEY ("id")
-            );`,
-    
-            `
-            CREATE TABLE IF NOT EXISTS "titanic"."hometown" (
-                "id" SERIAL,
-                "city" VARCHAR(255) NOT NULL,
-                "state" VARCHAR(255),
-                "country" VARCHAR(255) NOT NULL,
-                PRIMARY KEY ("id")
-            );`,
-    
-            `
-            CREATE TABLE IF NOT EXISTS "titanic"."destination" (
-                "id" SERIAL,
-                "city" VARCHAR(255) NOT NULL,
-                "state" VARCHAR(255),
-                "country" VARCHAR(255) NOT NULL,
-                PRIMARY KEY ("id")
-            );`
-        ]
-        for (const table of createAllTable){
-            await client.query(table)
-        }
+    const createAllTable = createTables()
+    for (const table of createAllTable){
+        await client.query(table)
     }
-    await createTables()
+    
+    // only if relations does not already exists
+    // const createAllRelation = createRelations()
+    // for (const fkQuery of createAllRelation){
+    //     await client.query(fkQuery)
+    // }
+}
+
+function createTables() {
+    return [
+        `
+        CREATE TABLE IF NOT EXISTS "titanic"."passenger" (
+            "id" SERIAL,
+            "lastname" VARCHAR(255) NOT NULL,
+            "firstname" VARCHAR(255) NOT NULL,
+            "hasSurvived" BOOLEAN,
+            "ticketId" INT NOT NULL,
+            "hometownId" INT NOT NULL,
+            "lifeboat" VARCHAR(64),
+            "body" VARCHAR(64),
+            PRIMARY KEY ("id")
+        );`,
+
+        `
+        CREATE TABLE IF NOT EXISTS "titanic"."ticket" (
+            "id" SERIAL,
+            "ticketNumber" VARCHAR(255) NOT NULL,
+            "fare" FLOAT NOT NULL,
+            "class" INT NOT NULL,
+            "cabin" VARCHAR(64),
+            "boardingId" INT NOT NULL,
+            "destinationId" INT NOT NULL,
+            PRIMARY KEY ("id")
+        );`,
+
+        `
+        CREATE TABLE IF NOT EXISTS "titanic"."boarding" (
+            "id" SERIAL,
+            "name" VARCHAR(255) NOT NULL,
+            PRIMARY KEY ("id")
+        );`,
+
+        `
+        CREATE TABLE IF NOT EXISTS "titanic"."hometown" (
+            "id" SERIAL,
+            "city" VARCHAR(255) NOT NULL,
+            "state" VARCHAR(255),
+            "country" VARCHAR(255) NOT NULL,
+            PRIMARY KEY ("id")
+        );`,
+
+        `
+        CREATE TABLE IF NOT EXISTS "titanic"."destination" (
+            "id" SERIAL,
+            "city" VARCHAR(255) NOT NULL,
+            "state" VARCHAR(255),
+            "country" VARCHAR(255) NOT NULL,
+            PRIMARY KEY ("id")
+        );`
+    ]
+}
+
+function createRelations() {
+    return [
+        `
+            ALTER TABLE "titanic"."passenger" 
+            ADD CONSTRAINT "fk_passenger_ticket" FOREIGN KEY ("ticketId") REFERENCES "titanic"."ticket" ("id");
+        `,
+        `
+            ALTER TABLE "titanic"."passenger" 
+            ADD CONSTRAINT "fk_passenger_hometown" FOREIGN KEY ("hometownId") REFERENCES "titanic"."hometown" ("id");
+        `,
+        `
+            ALTER TABLE "titanic"."ticket" 
+            ADD CONSTRAINT "fk_ticket_destination" FOREIGN KEY ("destinationId") REFERENCES "titanic"."destination" ("id");
+        `,
+        `
+            ALTER TABLE "titanic"."ticket" 
+            ADD CONSTRAINT "fk_ticket_boarding" FOREIGN KEY ("boardingId") REFERENCES "titanic"."boarding" ("id");
+        `,
+    ]
+    
 }
     
 function convertToBool(item, field){
