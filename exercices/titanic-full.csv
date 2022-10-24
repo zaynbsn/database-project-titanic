@@ -1042,7 +1042,7 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked,
 1041,,2,"Lahtinen, Rev. William",male,30.0,1,1,250651,26.0,,S,482.0,"Lahtinen, Reverend William",35.0,"Minneapolis, Minnesota, US",Southampton,"Minneapolis, Minnesota, US",,,2.0
 1042,,1,"Earnshaw, Mrs. Boulton (Olive Potter)",female,23.0,0,1,11767,83.1583,C54,C,,,,,,,,,
 1043,,3,"Matinoff, Mr. Nicola",male,,0,0,349255,7.8958,,C,1005.0,"Matinoff, Mr. Nicola",30.0,"Gabrovo, Bulgaria",Cherbourg,"Madison, Wisconsin, US",,,3.0
-1044,,3,"Storey, Mr. Thomas",male,60.5,0,0,3701,,,S,1233.0,"Storey, Mr. Thomas",51.0,"Liverpool, Merseyside, England,",Southampton,New York City,,261MB,3.0
+1044,,3,"Storey, Mr. Thomas",male,60.5,0,0,3701,0.0,,S,1233.0,"Storey, Mr. Thomas",51.0,"Liverpool, Merseyside, England,",Southampton,New York City,,261MB,3.0
 1045,,3,"Klasen, Mrs. (Hulda Kristina Eugenia Lofqvist)",female,36.0,0,2,350405,12.1833,,S,943.0,"Klasén, Mrs. Hulda Kristina Eugenia (née Lofqvist)",36.0,"Salmunds, Gotland, Sweden",Southampton,"Los Angeles, US",,,3.0
 1046,,3,"Asplund, Master. Filip Oscar",male,13.0,4,2,347077,31.3875,,S,650.0,"Asplund, Master Filip Oscar",13.0,"Alseda, Småland, Sweden",Southampton,"Worcester, Massachusetts, US",,,3.0
 1047,,3,"Duquemin, Mr. Joseph",male,24.0,0,0,S.O./P.P. 752,7.55,,S,790.0,"Duquemin, Mr. Joseph Pierre",19.0,"Saint Sampson, Guernsey, Channel Islands, England",Southampton,"Albion, New York, US",D,,3.0
