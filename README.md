@@ -1,6 +1,5 @@
 # Evaluation BDD - postgreSQL - Titanic dataset
-A base code for the [PostgreSQL](https://decima.notion.site/Exercice-PostgreSQL-a7e47b9571974e9c85c64a90354c63f5)
-The repo is based from a template of our professor @decima
+The repository is based from a template of our professor @decima
 
 The Project is about learning how to use database using a predefined dataset, here from the titanic
 
