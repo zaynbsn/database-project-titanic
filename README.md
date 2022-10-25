@@ -1,12 +1,11 @@
 # Evaluation BDD - postgreSQL - Titanic dataset
 The repository is based from a template of our professor @decima
 
-The Project is about learning how to use database using a predefined dataset, here from the titanic
+The Project is about learning how to use database using a predefined dataset, here about the titanic
 
 ## Requirements
 - NodeJS
 - Docker with Docker-compose
-
 
 ## Getting started
 
