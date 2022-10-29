@@ -48,4 +48,4 @@ The project subject can be found here :  [course.larget.fr](https://decima.notio
 
 ---
 
-Thanks for your lecture, hope this will make you pass a great time :)
+Thank you for your lecture :)
