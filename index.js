@@ -16,14 +16,14 @@ require('dotenv').config();
         let exercice = null;
         try {
             exercice = require(`./exercices/${cmd}.js`);
-            console.log(`🦊 Exercice ${cmd} found`.green);
+            // console.log(`🦊 Exercice ${cmd} found`.green);
 
         } catch (error) {
             console.error(`😭 Cannot find ${cmd}.js in exercices or ${cmd} contains errors`.white.bgRed.bold);
             console.debug(error);
             exit(100)
         }
-        console.log(`🍣 Starting ${cmd}`.green);
+        // console.log(`🍣 Starting ${cmd}`.green);
         try {
             await exercice(client);
         } catch (error) {

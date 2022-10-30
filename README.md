@@ -29,19 +29,28 @@ createTable.js function is to create the tables in the db
 createRelation.js function is to create the relation of the tables
 insert.js function is to insert all the data from titanicFull.csv in the db
 
-The questions are separated in 3 files, questionsPart1, questionsPart2 and questionsPart3, with 5 questions in each.
-
-To run them just run the following command :
+To run through all the questions, just run the following command :
 
 ```
-npm run start file_name
+npm run start questions
+```
+
+It will answer all 15 questions wth 15 seconds pause between each
+
+If you want to see the answer to a specific question, run this command :
+
+```
+npm run start questions/q1
+npm run start questions/q2
+npm run start questions/q3
+and so on...
 ```
 
 If you have `yarn` you can run
 ```
-yarn start ex0
+yarn start questions
 ```
-It will automatically use the file `./exercices/file_name.js`.
+It will automatically use the file `./exercices/questions.js`.
 
 
 The project subject can be found here :  [course.larget.fr](https://decima.notion.site/Mini-projet-SGBD-0622e1c8648c4973a596cd41c78354e2)
