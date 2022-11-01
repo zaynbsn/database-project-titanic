@@ -13,8 +13,6 @@ make a copy of `.env.sample` and name it `.env`.
 
 ask me if ou want the connexion url to the database !
 
-```
-
 This file is by default configured to run with the docker-compose or local redis installation.
 
 Then run `yarn` or `npm install` depending on your environment.
