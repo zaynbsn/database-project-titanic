@@ -1,11 +1,10 @@
 # Evaluation BDD - postgreSQL - Titanic dataset
-The repository is based from a template of our professor @decima
+The repository is based from a template from our teacher @decima
 
 The Project is about learning how to use database using a predefined dataset, here about the titanic
 
 ## Requirements
 - NodeJS
-- Docker with Docker-compose
 
 ## Getting started
 
@@ -39,7 +38,7 @@ npm run start questions
 ```
 
 It will answer all 15 questions one by one, waiting for a key to be pressed before moving on to the next question 
-press 'Ctrl+c' to exit the program at anytime
+Press 'Ctrl+c' to exit the program at anytime
 
 If you want to see the answer to a specific question, run this command :
 
