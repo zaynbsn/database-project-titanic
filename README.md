@@ -5,6 +5,7 @@ The Project is about learning how to use database using a predefined dataset, he
 
 ## Requirements
 - NodeJS
+- Docker with docker-compose
 
 ## Getting started
 
