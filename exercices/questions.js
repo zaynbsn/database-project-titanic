@@ -4,7 +4,7 @@ for(let i=1; i<16; i++){
 }
 
 module.exports = async function(client){
-  console.log("Hello! In this console, all the answers to the project's questions will be displayed".red)
+  console.log("Hello! In this command prompt, all the answers to the project's questions will be displayed.".red)
   await sleep(2000)
   console.log('You can exit the program anytime by pressing "Ctrl+c"'.red)
   await sleep(1500)

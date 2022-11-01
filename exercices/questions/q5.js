@@ -10,4 +10,5 @@ module.exports = async function(client){
   console.log('Il y a', q5.rows[0].count, 'hommes qui ont survécus')
   console.log('Il y a', q5.rows[1].count, 'femmes qui ont survécues')
   console.log('Il y a', q51.rows[0].count, 'enfants qui ont survécus')
+  console.log('donc oui la phrase a plus ou moins bien été appliquée')
 }

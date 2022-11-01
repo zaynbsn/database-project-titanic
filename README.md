@@ -11,7 +11,10 @@ The Project is about learning how to use database using a predefined dataset, he
 
 ### Installation
 make a copy of `.env.sample` and name it `.env`.
-ask me for the connexion url to the database !
+
+ask me if ou want the connexion url to the database !
+
+```
 
 This file is by default configured to run with the docker-compose or local redis installation.
 
