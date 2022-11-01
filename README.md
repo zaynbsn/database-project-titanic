@@ -35,7 +35,8 @@ To run through all the questions, just run the following command :
 npm run start questions
 ```
 
-It will answer all 15 questions wth 15 seconds pause between each
+It will answer all 15 questions one by one, waiting for a key to be pressed before moving on to the next question 
+press 'Ctrl+c' to exit the program at anytime
 
 If you want to see the answer to a specific question, run this command :
 
